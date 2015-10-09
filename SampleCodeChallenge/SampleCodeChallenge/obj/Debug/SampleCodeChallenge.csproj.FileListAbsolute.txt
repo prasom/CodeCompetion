@@ -1,0 +1,7 @@
+D:\SampleProject\CodeChallenge\SampleCodeChallenge\SampleCodeChallenge\bin\Debug\SampleCodeChallenge.exe.config
+D:\SampleProject\CodeChallenge\SampleCodeChallenge\SampleCodeChallenge\bin\Debug\SampleCodeChallenge.exe
+D:\SampleProject\CodeChallenge\SampleCodeChallenge\SampleCodeChallenge\bin\Debug\SampleCodeChallenge.pdb
+D:\SampleProject\CodeChallenge\SampleCodeChallenge\SampleCodeChallenge\bin\Debug\CodeChallenge1.dll
+D:\SampleProject\CodeChallenge\SampleCodeChallenge\SampleCodeChallenge\obj\Debug\SampleCodeChallenge.csprojResolveAssemblyReference.cache
+D:\SampleProject\CodeChallenge\SampleCodeChallenge\SampleCodeChallenge\obj\Debug\SampleCodeChallenge.exe
+D:\SampleProject\CodeChallenge\SampleCodeChallenge\SampleCodeChallenge\obj\Debug\SampleCodeChallenge.pdb
