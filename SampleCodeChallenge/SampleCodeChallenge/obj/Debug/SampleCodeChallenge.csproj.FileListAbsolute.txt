@@ -5,3 +5,10 @@ D:\SampleProject\CodeChallenge\SampleCodeChallenge\SampleCodeChallenge\bin\Debug
 D:\SampleProject\CodeChallenge\SampleCodeChallenge\SampleCodeChallenge\obj\Debug\SampleCodeChallenge.csprojResolveAssemblyReference.cache
 D:\SampleProject\CodeChallenge\SampleCodeChallenge\SampleCodeChallenge\obj\Debug\SampleCodeChallenge.exe
 D:\SampleProject\CodeChallenge\SampleCodeChallenge\SampleCodeChallenge\obj\Debug\SampleCodeChallenge.pdb
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\SampleCodeChallenge\SampleCodeChallenge\bin\Debug\SampleCodeChallenge.exe.config
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\SampleCodeChallenge\SampleCodeChallenge\obj\Debug\SampleCodeChallenge.exe
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\SampleCodeChallenge\SampleCodeChallenge\obj\Debug\SampleCodeChallenge.pdb
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\SampleCodeChallenge\SampleCodeChallenge\bin\Debug\SampleCodeChallenge.exe
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\SampleCodeChallenge\SampleCodeChallenge\bin\Debug\SampleCodeChallenge.pdb
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\SampleCodeChallenge\SampleCodeChallenge\bin\Debug\CodeChallenge1.dll
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\SampleCodeChallenge\SampleCodeChallenge\obj\Debug\SampleCodeChallenge.csprojResolveAssemblyReference.cache

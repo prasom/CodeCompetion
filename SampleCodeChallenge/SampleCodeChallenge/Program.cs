@@ -13,6 +13,7 @@ namespace SampleCodeChallenge
         {
             BattleshipBoard board = new BattleshipBoard();
             TigerWarShip tigerWarShip = new TigerWarShip();
+            board.CreateRandomBoard();
             tigerWarShip.Play(board);
             Console.WriteLine(tigerWarShip.GetTeamName());
             Console.ReadLine();
@@ -24,21 +25,41 @@ namespace SampleCodeChallenge
         public void Play(IFireable fireable)
         {
             int hit = 0;
-            for (int row = 1; row <= 10; row++)
+            int startRow = 0;
+            int startColumn = 0;
+            for (int row = 1; row <=10; row++)
             {
-                for (int column = 1; column <= 10; column++)
+                if (fireable.Fire(row, row) == (Result)ShotResult.HIT)
                 {
-                    if (fireable.Fire(row, column) == (Result)ShotResult.HIT)
+                    hit++;
+                    Console.WriteLine("Hit on col {0} row {1} and now total {2}", row, row, hit);
+                    if (hit == 17)
+                        continue;
+                    //Fire Up
+                    var preTopRow = row - 1;
+                    if (preTopRow > 1)
                     {
-                        hit++;
-                        Console.WriteLine("Hit on col {0} row {1} and now total {2}", row, column, hit);
-                        if (hit == 17)
-                            continue;
+                        Console.WriteLine("?? {0}", row);
+                        while (fireable.Fire(row, preTopRow--).Equals(ShotResult.MISS))
+                        {
+                           
+                        }
+                    }
+                    //Fire Down
+                    var preBottomRow = row + 1;
+                    if (preBottomRow <= 10 & preBottomRow > row)
+                    {
+                        Console.WriteLine("?? {0}", row);
+                        while (fireable.Fire(row, preBottomRow++).Equals(ShotResult.MISS))
+                        {
 
+                        }
                     }
                 }
             }
         }
+
+        
 
         public string GetTeamName()
         {
