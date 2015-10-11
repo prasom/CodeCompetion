@@ -8,29 +8,31 @@ namespace FloodFillAlgorithmSmaple
 {
     class Program
     {
-        private const int M = 8;
-        private const int N = 8;
-
+        private const int M = 10;
+        private const int N = 10;
+        public static int _count = 0;
         static void Main(string[] args)
         {
             int[,] screen = new int[M, N];
             screen = new int[,]
             {
-                {1, 1, 1, 1, 1, 1, 1, 1},
-                {1, 1, 1, 1, 1, 1, 0, 0},
-                {1, 0, 0, 1, 1, 0, 1, 1},
-                {1, 2, 2, 2, 2, 0, 1, 0},
-                {1, 1, 1, 2, 2, 0, 1, 0},
-                {1, 1, 1, 2, 2, 2, 2, 0},
-                {1, 1, 1, 1, 1, 2, 1, 1},
-                {1, 1, 1, 1, 1, 2, 2, 1}
+                {1, 0, 1, 1, 1, 1, 1, 1, 1, 1},
+                {1, 0, 1, 1, 1, 1, 0, 0, 0, 1},
+                {1, 0, 1, 1, 1, 1, 1, 1, 0, 1},
+                {1, 0, 1, 1, 1, 1, 1, 1, 0, 1},
+                {1, 0, 0, 0, 1, 1, 1, 1, 0, 1},
+                {1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 0, 1, 1},
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
             };
 
-            int x = 4, y = 4, newC = 3;
+            int x = 0, y = 1, newC = 3;
             FloodFill(screen, x, y, newC);
 
             Console.WriteLine("Updated screen after call to floodFill: \n");
-
+            Console.WriteLine("FloodFill have been call {0} times", _count);
             for (int i = 0; i < M; i++)
             {
                 for (int j = 0; j < N; j++)
@@ -43,12 +45,14 @@ namespace FloodFillAlgorithmSmaple
         private static void FloodFill(int[,] screen, int x, int y, int newC)
         {
             int prevC = screen[x, y];
-            Console.WriteLine(prevC);
+            Console.WriteLine("start at {0}", prevC);
             floodFillUtil(screen, x, y, prevC, newC);
         }
 
         static void floodFillUtil(int[,] screen, int x, int y, int prevC, int newC)
         {
+            _count++;
+
             // Base cases
             if (x < 0 || x >= M || y < 0 || y >= N)
                 return;
