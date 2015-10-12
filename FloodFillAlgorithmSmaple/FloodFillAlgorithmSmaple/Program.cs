@@ -28,7 +28,7 @@ namespace FloodFillAlgorithmSmaple
                 {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}
             };
 
-            int x = 0, y = 1, newC = 3;
+            int x = 1, y = 8, newC = 3;
             FloodFill(screen, x, y, newC);
 
             Console.WriteLine("Updated screen after call to floodFill: \n");
@@ -46,10 +46,10 @@ namespace FloodFillAlgorithmSmaple
         {
             int prevC = screen[x, y];
             Console.WriteLine("start at {0}", prevC);
-            floodFillUtil(screen, x, y, prevC, newC);
+            FloodFillUtil(screen, x, y, prevC, newC);
         }
 
-        static void floodFillUtil(int[,] screen, int x, int y, int prevC, int newC)
+        static void FloodFillUtil(int[,] screen, int x, int y, int prevC, int newC)
         {
             _count++;
 
@@ -63,10 +63,10 @@ namespace FloodFillAlgorithmSmaple
             screen[x, y] = newC;
 
             // Recur for north, east, south and west
-            floodFillUtil(screen, x + 1, y, prevC, newC);
-            floodFillUtil(screen, x - 1, y, prevC, newC);
-            floodFillUtil(screen, x, y + 1, prevC, newC);
-            floodFillUtil(screen, x, y - 1, prevC, newC);
+            FloodFillUtil(screen, x + 1, y, prevC, newC);
+            FloodFillUtil(screen, x - 1, y, prevC, newC);
+            FloodFillUtil(screen, x, y + 1, prevC, newC);
+            FloodFillUtil(screen, x, y - 1, prevC, newC);
         }
     }
 }

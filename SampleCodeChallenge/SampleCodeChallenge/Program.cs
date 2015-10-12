@@ -25,52 +25,60 @@ namespace SampleCodeChallenge
         public void Play(IFireable fireable)
         {
             int hit = 0;
-            int startRow = 0;
-            int startColumn = 0;
-            for (int row = 1; row <=10; row++)
+
+            //for (int target = 1; target <= 10; target++)
+            //{
+            //    if (fireable.Fire(target, target) == Result.HIT)
+            //    {
+            //        hit++;
+            //        if (hit == 17)
+            //            continue;
+
+            //    }
+            //}
+            string[,] tempShot = new string[10, 10];
+            for (var column = 1; column <= 10; column++)
             {
-                if (fireable.Fire(row, row) == (Result)ShotResult.HIT)
+                Fire(fireable, 1, column, hit, tempShot);
+            }
+
+
+        }
+
+        private void Fire(IFireable fireable, int row, int column, int hit, string[,] tempShot)
+        {
+
+            if (hit == 17)
+                return;
+
+            if (row < 1 || row > 10 || column < 1 || column > 10)
+                return;
+            var initRow = row - 1;
+            var initCol = column - 1;
+            var current = tempShot[initRow, initCol];
+            var top = initRow > 0 ? tempShot[initRow - 1, initCol] : "";
+            var bottom = initRow < 9 ? tempShot[initRow + 1, initCol] : "";
+            var left = initCol > 0 ? tempShot[initRow, initCol - 1] : "";
+            var right = initCol < 9 ? tempShot[initRow, initCol + 1] : "";
+            if (tempShot[initRow, initCol] == null)
+            {
+                if (fireable.Fire(column, row) == Result.HIT)
                 {
                     hit++;
-                    Console.WriteLine("Hit on col {0} row {1} and now total {2}", row, row, hit);
-                    if (hit == 17)
-                        continue;
-                    //Fire Up
-                    var preTopRow = row - 1;
-                    if (preTopRow > 1)
-                    {
-                        Console.WriteLine("?? {0}", row);
-                        while (fireable.Fire(row, preTopRow--).Equals(ShotResult.MISS))
-                        {
-                           
-                        }
-                    }
-                    //Fire Down
-                    var preBottomRow = row + 1;
-                    if (preBottomRow <= 10 & preBottomRow > row)
-                    {
-                        Console.WriteLine("?? {0}", row);
-                        while (fireable.Fire(row, preBottomRow++).Equals(ShotResult.MISS))
-                        {
-
-                        }
-                    }
+                    tempShot[initRow, initCol] = "hit";
+                    Fire(fireable, row, column + 1, hit, tempShot);
+                    Fire(fireable, row, column - 1, hit, tempShot);
+                }
+                else
+                {
+                    tempShot[initRow, initCol] = "miss";
                 }
             }
+            Fire(fireable, row + 1, column, hit, tempShot);
         }
-
-        
-
         public string GetTeamName()
         {
-            return "Liger";
+            return "Tiger";
         }
-    }
-
-    enum ShotResult
-    {
-        HIT,
-        MISS,
-        MISSION_COMPLETED
     }
 }
