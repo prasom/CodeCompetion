@@ -22,6 +22,7 @@ namespace SampleCodeChallenge
 
     class TigerWarShip : IBattleshipAi
     {
+        string[,] shotHistory = new string[10, 10];
         public void Play(IFireable fireable)
         {
             int hit = 0;
@@ -36,16 +37,16 @@ namespace SampleCodeChallenge
 
             //    }
             //}
-            string[,] tempShot = new string[10, 10];
+            
             for (var column = 1; column <= 10; column++)
             {
-                Fire(fireable, 1, column, hit, tempShot);
+                FireDown(fireable, 1, column, hit);
             }
 
 
         }
 
-        private void Fire(IFireable fireable, int row, int column, int hit, string[,] tempShot)
+        private void FireDown(IFireable fireable, int row, int column, int hit)
         {
 
             if (hit == 17)
@@ -55,26 +56,70 @@ namespace SampleCodeChallenge
                 return;
             var initRow = row - 1;
             var initCol = column - 1;
-            var current = tempShot[initRow, initCol];
-            var top = initRow > 0 ? tempShot[initRow - 1, initCol] : "";
-            var bottom = initRow < 9 ? tempShot[initRow + 1, initCol] : "";
-            var left = initCol > 0 ? tempShot[initRow, initCol - 1] : "";
-            var right = initCol < 9 ? tempShot[initRow, initCol + 1] : "";
-            if (tempShot[initRow, initCol] == null)
+            var current = shotHistory[initRow, initCol];
+            var top = initRow > 0 ? shotHistory[initRow - 1, initCol] : "";
+            var bottom = initRow < 9 ? shotHistory[initRow + 1, initCol] : "";
+            var left = initCol > 0 ? shotHistory[initRow, initCol - 1] : "";
+            var right = initCol < 9 ? shotHistory[initRow, initCol + 1] : "";
+            if (shotHistory[initRow, initCol] == null)
             {
-                if (fireable.Fire(column, row) == Result.HIT)
+                if (right != "miss")
                 {
-                    hit++;
-                    tempShot[initRow, initCol] = "hit";
-                    Fire(fireable, row, column + 1, hit, tempShot);
-                    Fire(fireable, row, column - 1, hit, tempShot);
+                    if (fireable.Fire(column, row) == Result.HIT)
+                    {
+                        hit++;
+                        shotHistory[initRow, initCol] = "hit";
+                        FindAnyShip(fireable, row, column, hit, shotHistory);
+                        //Fire(fireable, row, column - 1, hit, tempShot);
+                    }
+                    else
+                    {
+                        shotHistory[initRow, initCol] = "miss";
+                    }
                 }
                 else
                 {
-                    tempShot[initRow, initCol] = "miss";
+                    shotHistory[initRow, initCol] = "miss";
                 }
             }
-            Fire(fireable, row + 1, column, hit, tempShot);
+            FireDown(fireable, row + 1, column, hit);
+        }
+
+        private void FindAnyShip(IFireable fireable, int row, int col, int hitPoint, string[,] historyStrings)
+        {
+            if (hitPoint == 17)
+                return;
+
+            if (row < 1 || row > 10 || col < 1 || col > 10)
+                return;
+            var initRow = row - 1;
+            var initCol = col - 1;
+            var current = historyStrings[initRow, initCol];
+            var top = initRow > 0 ? historyStrings[initRow - 1, initCol] : "";
+            var bottom = initRow < 9 ? historyStrings[initRow + 1, initCol] : "";
+            var left = initCol > 0 ? historyStrings[initRow, initCol - 1] : "";
+            var right = initCol < 9 ? historyStrings[initRow, initCol + 1] : "";
+            if (historyStrings[initRow, initCol] == null)
+            {
+                if (right != "miss")
+                {
+                    if (fireable.Fire(col, row) == Result.HIT)
+                    {
+                        hitPoint++;
+                        historyStrings[initRow, initCol] = "hit";
+                        FindAnyShip(fireable, row, col + 1, hitPoint, historyStrings);
+                        FindAnyShip(fireable, row, col - 1, hitPoint, historyStrings);
+                    }
+                    else
+                    {
+                        historyStrings[initRow, initCol] = "miss";
+                    }
+                }
+                else
+                {
+                    historyStrings[initRow, initCol] = "miss";
+                }
+            }
         }
         public string GetTeamName()
         {
