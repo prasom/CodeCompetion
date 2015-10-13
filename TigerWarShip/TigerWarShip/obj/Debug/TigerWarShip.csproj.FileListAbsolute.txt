@@ -1,0 +1,7 @@
+D:\SampleProject\CodeChallenge\TigerWarShip\TigerWarShip\bin\Debug\TigerWarShip.exe.config
+D:\SampleProject\CodeChallenge\TigerWarShip\TigerWarShip\bin\Debug\TigerWarShip.exe
+D:\SampleProject\CodeChallenge\TigerWarShip\TigerWarShip\bin\Debug\TigerWarShip.pdb
+D:\SampleProject\CodeChallenge\TigerWarShip\TigerWarShip\bin\Debug\CodeChallenge1.dll
+D:\SampleProject\CodeChallenge\TigerWarShip\TigerWarShip\obj\Debug\TigerWarShip.csprojResolveAssemblyReference.cache
+D:\SampleProject\CodeChallenge\TigerWarShip\TigerWarShip\obj\Debug\TigerWarShip.exe
+D:\SampleProject\CodeChallenge\TigerWarShip\TigerWarShip\obj\Debug\TigerWarShip.pdb

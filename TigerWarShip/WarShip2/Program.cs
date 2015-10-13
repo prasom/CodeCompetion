@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CodeChallenge1;
-
-namespace TigerWarShip
+namespace WarShip2
 {
     class Program
     {
@@ -15,10 +14,7 @@ namespace TigerWarShip
             TigerWarShip tigerWarShip = new TigerWarShip();
             board.CreateRandomBoard();
             tigerWarShip.Play(board);
-            Console.WriteLine(tigerWarShip.GetTeamName());
             Console.ReadLine();
         }
     }
-
-    
 }

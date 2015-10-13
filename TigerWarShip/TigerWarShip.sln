@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TigerWarShip", "TigerWarShip\TigerWarShip.csproj", "{3EAB6180-14CC-4950-8035-76684DC4F0A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarShip2", "WarShip2\WarShip2.csproj", "{E5B4E984-C5F6-425B-835C-136869574766}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{3EAB6180-14CC-4950-8035-76684DC4F0A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EAB6180-14CC-4950-8035-76684DC4F0A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EAB6180-14CC-4950-8035-76684DC4F0A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B4E984-C5F6-425B-835C-136869574766}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B4E984-C5F6-425B-835C-136869574766}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B4E984-C5F6-425B-835C-136869574766}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B4E984-C5F6-425B-835C-136869574766}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
