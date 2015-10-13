@@ -10,75 +10,72 @@ namespace WarShip2
         private string[,] shotHistory = new string[10, 10];
         public void Play(IFireable fireable)
         {
-            CutTopLeftAndBottomRight(fireable);
-            CutBottomLeftAndTopRight(fireable);
-        }
-
-        private void CutTopLeftAndBottomRight(IFireable fireable)
-        {
-            Fire(fireable, 2, 1);
-            Fire(fireable, 1, 2);
-            Fire(fireable, 9, 10);
-            Fire(fireable, 10, 9);
-        }
-        private void CutBottomLeftAndTopRight(IFireable fireable)
-        {
-            Fire(fireable, 9, 1);
-            Fire(fireable, 10, 2);
+            Fire(fireable, 1, 3);
+            Fire(fireable, 1, 5);
+            Fire(fireable, 1, 7);
             Fire(fireable, 1, 9);
-            Fire(fireable, 2, 10);
-        }
-        public void RightDiagonalFire(IFireable fireable)
-        {
-            for (int target = 1; target <= 10; target++)
-            {
-                Fire(fireable, target, target);
-            }
-        }
-        public void LeftDiagonalFire(IFireable fireable)
-        {
-            int row = 1;
-            for (int target = 10; target >= 1; target--)
-            {
-                Fire(fireable, target, row);
-                row++;
-            }
+            Fire(fireable, 1, 11);
+            Fire(fireable, 3, 13);
+            Fire(fireable, 5, 15);
+            Fire(fireable, 7, 17);
+            Fire(fireable, 9, 19);
         }
 
-        public void VerticalFire(IFireable fireable)
+
+        public void Fire(IFireable fireable, int col, int odd)
         {
-            int col = 5;
-            int row = 1;
-            for (int target = row; target <= 10; target++)
-            {
-                Fire(fireable, col, target);
-            }
-        }
-        public void HorizontalFire(IFireable fireable)
-        {
-            int col = 1;
-            int row = 5;
-            for (int target = col; target <= 10; target++)
-            {
-                Fire(fireable, target, row);
-            }
-        }
-        public void Fire(IFireable fireable, int col, int row)
-        {
-            if (hitPoint == 17 || row < 1 || row > 10 || col < 1 || col > 10 || shotHistory[row - 1, col - 1] != null)
+            var _tempRow = (col - odd) * -1;
+            if (col > 10 || _tempRow == 0 || _tempRow > 10 || _tempRow < 1 || shotHistory[col - 1, _tempRow - 1] != null)
                 return;
-            shotHistory[row - 1, col - 1] = "o";
-            if (fireable.Fire(col, row) == Result.HIT)
+            if (fireable.Fire(col, _tempRow) == Result.HIT)
             {
-                hitPoint++;
-                Fire(fireable, col + 1, row);
-                if (col > 1) { Fire(fireable, col - 1, row); }
-                Fire(fireable, col, row + 1);
-                if (row > 1) { Fire(fireable, col, row - 1); }
+                AddHistory(col, _tempRow, "o");
+                FireAround(fireable, col - 1, _tempRow);
+                FireAround(fireable, col + 1, _tempRow);
+                FireAround(fireable, col, _tempRow - 1);
+                FireAround(fireable, col, _tempRow + 1);
+            }
+            else
+            {
+                AddHistory(col, _tempRow, "x");
+            }
+            Fire(fireable, col + 1, odd);
+        }
 
+        private void FireAround(IFireable fireable, int col, int row)
+        {
+            if (col > 10 || col < 1 || row > 10 || row < 1)
+                return;
+            if (IsAvaliableTarget(col - 1, row - 1))
+            {
+                if (fireable.Fire(col, row) == Result.HIT)
+                    AddHistory(col, row, "o");
+                else
+                {
+                    AddHistory(col, row, "x");
+                }
+            }
+            else
+            {
+                AddHistory(col, row, "x");
             }
         }
 
+        private void AddHistory(int col, int row, string val)
+        {
+            shotHistory[col - 1, row - 1] = val;
+        }
+
+        private bool IsAvaliableTarget(int col, int row)
+        {
+            var status = shotHistory[col, row] == null;
+            return status;
+        }
+
+        //private void AddShotHistory(int col,int row,string val)
+        //{
+        //    shotHistory[col - 1, row - 1] = val;
+        //}
         public string GetTeamName()
         {
             return "Tiger";

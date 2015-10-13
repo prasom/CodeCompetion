@@ -4,3 +4,10 @@ D:\SampleProject\CodeChallenge\TigerWarShip\WarShip2\bin\Debug\WarShip2.pdb
 D:\SampleProject\CodeChallenge\TigerWarShip\WarShip2\bin\Debug\CodeChallenge1.dll
 D:\SampleProject\CodeChallenge\TigerWarShip\WarShip2\obj\Debug\WarShip2.exe
 D:\SampleProject\CodeChallenge\TigerWarShip\WarShip2\obj\Debug\WarShip2.pdb
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\TigerWarShip\WarShip2\bin\Debug\WarShip2.exe.config
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\TigerWarShip\WarShip2\obj\Debug\WarShip2.exe
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\TigerWarShip\WarShip2\obj\Debug\WarShip2.pdb
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\TigerWarShip\WarShip2\bin\Debug\WarShip2.exe
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\TigerWarShip\WarShip2\bin\Debug\WarShip2.pdb
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\TigerWarShip\WarShip2\bin\Debug\CodeChallenge1.dll
+E:\MY_PROJECT\CodeCompetition\CodeCompetion\TigerWarShip\WarShip2\obj\Debug\WarShip2.csprojResolveAssemblyReference.cache
